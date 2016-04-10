@@ -17,4 +17,4 @@ apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # get the mkvdts2ac3 script
-RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /root/mkvdts2ac3 && chmod -R /root/mkvdts2ac3
+RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /root/mkvdts2ac3 && chmod -R /root/mkvdts2ac3/*
