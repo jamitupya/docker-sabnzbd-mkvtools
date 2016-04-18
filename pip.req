@@ -1,7 +1,7 @@
 requests[security]
 requests-cache
 babelfish
-guessit
+guessit<2
 subliminal
 stevedore
 python-dateutil
