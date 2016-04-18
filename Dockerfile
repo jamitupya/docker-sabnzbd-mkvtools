@@ -20,8 +20,7 @@ guessit \
 subliminal \
 stevedore \
 dateutil \
-qtfaststart
-"
+qtfaststart"
 
 
 # install main packages
