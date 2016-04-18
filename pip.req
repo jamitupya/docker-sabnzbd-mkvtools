@@ -1,10 +1,9 @@
-requests 
-requests[security]
 requests
+requests[security]
 requests-cache
 babelfish
 guessit
 subliminal
 stevedore
-dateutil
+python-dateutil
 qtfaststart

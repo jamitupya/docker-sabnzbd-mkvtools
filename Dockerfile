@@ -18,7 +18,7 @@ apt-get install \
 $APTLIST -qy
 
 # install pip and prerequisites
-RUN pip install -r pip.req
+RUN pip install --upgrade pip && pip install -r pip.req
 
 # cleanup
 RUN apt-get clean -y && \
