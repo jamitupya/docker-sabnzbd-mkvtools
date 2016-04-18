@@ -18,7 +18,7 @@ apt-get install \
 $APTLIST -qy
 
 # install pip and prerequisites
-RUN pip install requests[security] requests requests-cache babelfish guessit subliminal stevedore dateutil qtfaststart
+RUN pip install -r pip.req
 
 # cleanup
 RUN apt-get clean -y && \
