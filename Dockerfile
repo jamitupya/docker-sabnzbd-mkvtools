@@ -11,27 +11,17 @@ python-dev \
 build-essential \
 rsync"
 
-ENV PIPLIST="requests \
-requests[security] \
-requests \
-requests-cache \
-babelfish \
-guessit \
-subliminal \
-stevedore \
-dateutil \
-qtfaststart"
-
-
 # install main packages
 RUN add-apt-repository ppa:mc3man/trusty-media && \
 apt-get update -q && \
 apt-get install \
-$APTLIST -qy && \
-pip install -U pip && \
-pip install \
-$PIPLIST && \
-apt-get clean -y && \
+$APTLIST -qy
+
+# install pip and prerequisites
+RUN pip install requests[security] requests requests-cache babelfish guessit subliminal stevedore dateutil qtfaststart
+
+# cleanup
+RUN apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # get the mp4 automator
