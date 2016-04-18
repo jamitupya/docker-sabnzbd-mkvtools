@@ -18,7 +18,8 @@ apt-get install \
 $APTLIST -qy
 
 # install pip and prerequisites
-RUN pip install --upgrade pip && pip install -r pip.req
+RUN git clone https://github.com/jamitupya/docker-sabnzbd-mkvtools /dockerfile && cd /dockerfile && git checkout mp4automator && git fetch
+RUN pip install --upgrade pip && cd /dockerfile && pip install -r pip.req
 
 # cleanup
 RUN apt-get clean -y && \
