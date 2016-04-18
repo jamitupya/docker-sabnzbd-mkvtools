@@ -6,8 +6,8 @@ MAINTAINER Jamitupya
 ENV APTLIST="ffmpeg \
 mkvtoolnix \
 git \
-python2-pip \
-python2-dev \
+python-pip \
+python-dev \
 build-essential \
 rsync"
 
@@ -20,7 +20,7 @@ guessit \
 subliminal \
 stevedore \
 dateutil \
-qtfaststart \
+qtfaststart
 "
 
 
