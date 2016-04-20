@@ -26,11 +26,7 @@ RUN apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # get the mp4 automator
-#RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator && chown -R abc:users /mp4automator && touch /mp4automator/info.log && chmod 755 /mp4automator/info.log
-RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator && touch /mp4automator/info.log && chmod 777 /mp4automator/info.log
+RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator && chown -R abc:users /mp4automator && touch /mp4automator/info.log && chmod 777 /mp4automator/info.log
 
 # get the mkvdts2ac3 script
-#RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3 && chown -R abc:users /mkvdts2ac3  # testing running as default contexts
-RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3
-
-
+RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3 && chown -R abc:users /mkvdts2ac3
