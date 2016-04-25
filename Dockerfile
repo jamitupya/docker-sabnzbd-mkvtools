@@ -9,7 +9,12 @@ git \
 python-pip \
 python-dev \
 build-essential \
+ntp \
 rsync"
+
+
+# setup timezone correctly
+RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && ntpdate -s ntp.ubuntu.com && service ntp restart
 
 # install main packages
 RUN add-apt-repository ppa:mc3man/trusty-media && \
@@ -26,7 +31,10 @@ RUN apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # get the mp4 automator
-RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator && chown -R abc:users /mp4automator && touch /mp4automator/info.log && chmod -R 755 /mp4automator/
+RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator && chown -R abc:users /mp4automator && touch /mp4automator/info.log && chmod -R 777 /mp4automator/
 
 # get the mkvdts2ac3 script
 RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3 && chown -R abc:users /mkvdts2ac3
+
+# set permissions for post processing folders
+RUN chmod -R 777 /postprocess/ && chmod -R 777 /downloads/ 
