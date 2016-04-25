@@ -14,7 +14,7 @@ rsync"
 
 
 # setup timezone correctly
-RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && ntpdate -s ntp.ubuntu.com && service ntp restart
+RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && ntpdate -s ntp.ubuntu.com
 
 # install main packages
 RUN add-apt-repository ppa:mc3man/trusty-media && \
