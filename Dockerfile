@@ -36,5 +36,3 @@ RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4autom
 # get the mkvdts2ac3 script
 RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3 && chown -R abc:users /mkvdts2ac3
 
-# set permissions for post processing folders
-RUN chmod -R 777 /postprocess/ && chmod -R 777 /downloads/ 
