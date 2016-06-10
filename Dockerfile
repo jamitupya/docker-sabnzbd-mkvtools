@@ -12,6 +12,10 @@ build-essential \
 ntp \
 rsync"
 
+# set defaults
+ENV TZN=Asia/Hong_Kong
+ENV PGID=100
+ENV PUID=1003
 
 # setup timezone correctly
 RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && ntpdate -s ntp.ubuntu.com
@@ -31,7 +35,7 @@ RUN apt-get clean -y && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # permissions for postprocess
-RUN chown -R abc:users /postprocess
+RUN chown -R abc:users /postprocess ; chown -R abc:users /scripts 
 
 # get the mp4 automator
 RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator ; chown -R abc:users /mp4automator ; touch /mp4automator/info.log ; chmod -R 777 /mp4automator/
@@ -39,5 +43,5 @@ RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4autom
 # get the mkvdts2ac3 script
 RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3 && chown -R abc:users /mkvdts2ac3
 
-VOLUME /config /downloads /incomplete-downloads /postprocess /mp4automator
+VOLUME /config /downloads /incomplete-downloads /postprocess /mp4automator /scripts
 EXPOSE 8080 9090
