@@ -19,6 +19,9 @@ ENV TZ=Asia/Hong_Kong
 ENV PGID=0
 ENV PUID=0
 
+# setup fix
+
+RUN apt-get -y install software-properties-common
 
 # install main packages
 RUN add-apt-repository ppa:mc3man/trusty-media && \
