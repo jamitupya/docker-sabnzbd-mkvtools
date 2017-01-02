@@ -19,7 +19,8 @@ ENV PGID=0
 ENV PUID=0
 
 # setup timezone correctly
-RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && ntpdate -s ntp.ubuntu.com
+#RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && 
+RUN ntpdate -s ntp.ubuntu.com
 
 # install main packages
 RUN add-apt-repository ppa:mc3man/trusty-media && \
