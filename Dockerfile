@@ -10,6 +10,7 @@ python-pip \
 python-dev \
 build-essential \
 ntp \
+ntpdate \
 rsync"
 
 # set defaults
