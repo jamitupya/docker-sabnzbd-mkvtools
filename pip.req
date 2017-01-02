@@ -1,8 +1,9 @@
+requests
 requests[security]
 requests-cache
 babelfish
 guessit<2
-subliminal
+subliminal<2
 stevedore
 python-dateutil
 qtfaststart

@@ -14,6 +14,7 @@ rsync"
 
 # set defaults
 ENV TZN=Asia/Hong_Kong
+ENV TZ=Asia/Hong_Kong
 ENV PGID=0
 ENV PUID=0
 
