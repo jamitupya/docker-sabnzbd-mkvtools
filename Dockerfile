@@ -28,7 +28,7 @@ $APTLIST -qy
 
 # setup timezone correctly
 #RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && 
-RUN ntpdate -s ntp.ubuntu.com
+#RUN ntpdate -s ntp.ubuntu.com
 
 # install pip and prerequisites
 RUN git clone https://github.com/jamitupya/docker-sabnzbd-mkvtools /dockerfile && cd /dockerfile && git checkout mp4automator && git fetch
