@@ -19,15 +19,16 @@ ENV TZ=Asia/Hong_Kong
 ENV PGID=0
 ENV PUID=0
 
-# setup timezone correctly
-#RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && 
-RUN ntpdate -s ntp.ubuntu.com
 
 # install main packages
 RUN add-apt-repository ppa:mc3man/trusty-media && \
 apt-get update -q && \
 apt-get install \
 $APTLIST -qy
+
+# setup timezone correctly
+#RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && 
+RUN ntpdate -s ntp.ubuntu.com
 
 # install pip and prerequisites
 RUN git clone https://github.com/jamitupya/docker-sabnzbd-mkvtools /dockerfile && cd /dockerfile && git checkout mp4automator && git fetch
