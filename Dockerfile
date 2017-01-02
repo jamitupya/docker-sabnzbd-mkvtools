@@ -14,8 +14,8 @@ rsync"
 
 # set defaults
 ENV TZN=Asia/Hong_Kong
-ENV PGID=100
-ENV PUID=1003
+ENV PGID=0
+ENV PUID=0
 
 # setup timezone correctly
 RUN echo $TZN > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && ntpdate -s ntp.ubuntu.com
@@ -38,7 +38,7 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN chown -R abc:users /postprocess ; chown -R abc:users /scripts 
 
 # get the mp4 automator
-RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator.git /mp4automator ; chown -R abc:users /mp4automator ; touch /mp4automator/info.log ; chmod -R 777 /mp4automator/
+RUN git clone https://github.com/mdhiggins/sickbeard_mp4_automator /mp4automator ; chown -R abc:users /mp4automator ; touch /mp4automator/info.log ; chmod -R 777 /mp4automator/
 
 # get the mkvdts2ac3 script
 RUN git clone https://github.com/JakeWharton/mkvdts2ac3.git /mkvdts2ac3 && chown -R abc:users /mkvdts2ac3
