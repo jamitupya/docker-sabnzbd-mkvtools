@@ -29,6 +29,7 @@ $APTLIST -qy
 
 # install pip and prerequisites
 RUN git clone https://github.com/jamitupya/docker-sabnzbd-mkvtools /dockerfile && cd /dockerfile && git checkout mp4automator && git fetch
+RUN wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 RUN pip install --upgrade pip && cd /dockerfile && pip install -r pip.req
 
 # cleanup
